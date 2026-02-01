@@ -16,24 +16,6 @@ Save 40-50% on essential goods by buying directly from wholesalers
 
 ---
 
-## 📋 Table of Contents
-
-- [Overview](#-overview)
-- [The Problem](#-the-problem)
-- [The Solution](#-the-solution)
-- [Key Features](#-key-features)
-- [How It Works](#-how-it-works)
-- [Technology Stack](#️-technology-stack)
-- [Technical Architecture](#-technical-architecture)
-- [Impact & Statistics](#-impact--statistics)
-- [Roadmap](#-roadmap)
-- [Installation](#-installation)
-- [Contributing](#-contributing)
-- [Contact](#-contact)
-- [License](#-license)
-
----
-
 ## 🌟 Overview
 
 **Mantiqati** (Arabic: منطقتي - "My Neighborhood") is a groundbreaking digital platform that empowers communities to achieve massive savings on essential goods through collective purchasing. By leveraging the power of bulk buying, we connect neighbors directly with wholesalers, eliminating retail markup and delivering savings of up to 50%.
