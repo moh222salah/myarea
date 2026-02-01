@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mantiqati - Revolutionary Collective Purchasing Platform | Save 40-50% on Essential Goods">
+    <meta name="keywords" content="collective buying, group purchasing, mantiqati, save money, egypt, community shopping">
+    <meta name="author" content="Mohamed Salah">
+    <title>Mantiqati | Revolutionary Collective Purchasing Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="background-container">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar glass-effect">
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="logo-icon">🏘️</span>
+                <span class="logo-text">Mantiqati</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#stats" class="nav-link">Impact</a></li>
+                <li><a href="#timeline" class="nav-link">Process</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#tech" class="nav-link">Technology</a></li>
+                <li><a href="#cta" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge glass-effect">
+                    <span class="badge-icon">✨</span>
+                    <span>Revolutionizing Community Shopping</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="gradient-text">Mantiqati</span>
+                    <br>
+                    <span class="title-subtitle">Collective Purchasing Platform</span>
+                </h1>
+                <p class="hero-description">
+                    Join your neighbors in bulk buying and save <strong>40-50%</strong> on essential goods. 
+                    Breaking retail monopolies through community power.
+                </p>
+                <div class="hero-stats-mini">
+                    <div class="mini-stat">
+                        <span class="mini-stat-number">47%</span>
+                        <span class="mini-stat-label">Average Savings</span>
+                    </div>
+                    <div class="mini-stat">
+                        <span class="mini-stat-number">1000+</span>
+                        <span class="mini-stat-label">Target Users</span>
+                    </div>
+                    <div class="mini-stat">
+                        <span class="mini-stat-number">200+</span>
+                        <span class="mini-stat-label">Families per Region</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#cta" class="btn btn-primary">
+                        <span>Get Started</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#timeline" class="btn btn-secondary">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 5V10L13 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span>How It Works</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card glass-effect">
+                    <div class="card-header">
+                        <span class="card-icon">📦</span>
+                        <span class="card-title">Active Group Purchase</span>
+                    </div>
+                    <div class="card-product">
+                        <div class="product-image">🌾</div>
+                        <div class="product-info">
+                            <h4>Premium Rice - 1 Ton</h4>
+                            <p>Maadi Region, Cairo</p>
+                        </div>
+                    </div>
+                    <div class="card-progress">
+                        <div class="progress-header">
+                            <span>Progress</span>
+                            <span class="progress-percentage">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                        <div class="progress-stats">
+                            <span>850 / 1000 kg</span>
+                            <span>170 orders</span>
+                        </div>
+                    </div>
+                    <div class="card-price">
+                        <div class="price-compare">
+                            <div class="old-price">
+                                <span class="label">Retail Price</span>
+                                <span class="value strike">30 EGP/kg</span>
+                            </div>
+                            <div class="new-price">
+                                <span class="label">Group Price</span>
+                                <span class="value gradient-text">16 EGP/kg</span>
+                            </div>
+                        </div>
+                        <div class="savings-badge">
+                            Save 47% 💰
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="stats-section">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-badge glass-effect">
+                    <span class="badge-icon">📊</span>
+                    <span>Impact & Reach</span>
+                </span>
+                <h2 class="section-title">Transforming Communities<br>Through <span class="gradient-text">Collective Power</span></h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card glass-effect">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-target="3360">0</div>
+                        <div class="stat-label">EGP Saved Annually<br>Per Family</div>
+                    </div>
+                    <div class="stat-trend positive">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M8 12V4M8 4L4 8M8 4L12 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>47% savings</span>
+                    </div>
+                </div>
+                <div class="stat-card glass-effect">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-target="200">0</div>
+                        <div class="stat-label">Families<br>Per Region</div>
+                    </div>
+                    <div class="stat-trend positive">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M8 12V4M8 4L4 8M8 4L12 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Growing daily</span>
+                    </div>
+                </div>
+                <div class="stat-card glass-effect">
+                    <div class="stat-icon">📦</div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-target="1000">0</div>
+                        <div class="stat-label">Kg Per<br>Group Purchase</div>
+                    </div>
+                    <div class="stat-trend neutral">
+                        <span>Bulk wholesale</span>
+                    </div>
+                </div>
+                <div class="stat-card glass-effect">
+                    <div class="stat-icon">⚡</div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-target="7">0</div>
+                        <div class="stat-label">Days<br>Average Completion</div>
+                    </div>
+                    <div class="stat-trend positive">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M8 12V4M8 4L4 8M8 4L12 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Fast delivery</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="timeline-section">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-badge glass-effect">
+                    <span class="badge-icon">🔄</span>
+                    <span>Process Flow</span>
+                </span>
+                <h2 class="section-title">How <span class="gradient-text">Mantiqati</span> Works</h2>
+                <p class="section-description">Four simple steps to massive savings</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-effect">
+                        <div class="timeline-badge">Step 1</div>
+                        <h3>📢 Product Announcement</h3>
+                        <p>A bulk purchase opportunity (e.g., 1 ton of rice at wholesale price) is announced to your region. Target quantity and deadline are set.</p>
+                        <div class="timeline-details">
+                            <span class="detail-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 4V8L10.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                Day 1
+                            </span>
+                            <span class="detail-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                0 / 1000 kg
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-effect">
+                        <div class="timeline-badge">Step 2</div>
+                        <h3>🛒 Order & Pay</h3>
+                        <p>Residents place orders (minimum 5kg) and pay upfront via the app. Real-time progress bar shows how close you are to reaching the target.</p>
+                        <div class="timeline-details">
+                            <span class="detail-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 4V8L10.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                Days 2-5
+                            </span>
+                            <span class="detail-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <rect x="2" y="4" width="12" height="8" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M5 4V3C5 2.44772 5.44772 2 6 2H10C10.5523 2 11 2.44772 11 3V4" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                850 / 1000 kg
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-effect">
+                        <div class="timeline-badge">Step 3</div>
+                        <h3>✅ Purchase Complete</h3>
+                        <p>Once target is reached, order is placed with the supplier. Delivery is scheduled within 24-48 hours. Notifications sent to all participants.</p>
+                        <div class="timeline-details">
+                            <span class="detail-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 4V8L10.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                Day 6
+                            </span>
+                            <span class="detail-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M5.5 8L7 9.5L10.5 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                1000 / 1000 kg
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-effect">
+                        <div class="timeline-badge">Step 4</div>
+                        <h3>📍 Pickup & Delivery</h3>
+                        <p>Collect your order from designated pickup points using QR code. Volunteers distribute portions. Rate the experience and help improve the platform.</p>
+                        <div class="timeline-details">
+                            <span class="detail-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 4V8L10.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                Day 8
+                            </span>
+                            <span class="detail-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 2L9.5 5.5L13 6L10.5 8.5L11 12L8 10L5 12L5.5 8.5L3 6L6.5 5.5L8 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                                </svg>
+                                Complete
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-badge glass-effect">
+                    <span class="badge-icon">⚡</span>
+                    <span>Key Features</span>
+                </span>
+                <h2 class="section-title">Why Choose <span class="gradient-text">Mantiqati</span></h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">💰</div>
+                    <h3>Massive Savings</h3>
+                    <p>Save 40-50% on essential goods by buying directly from wholesalers at bulk prices</p>
+                    <div class="feature-highlight">47% average discount</div>
+                </div>
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Complete Transparency</h3>
+                    <p>View actual supplier invoices and costs. No hidden fees, no markup surprises</p>
+                    <div class="feature-highlight">100% transparent pricing</div>
+                </div>
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">🏘️</div>
+                    <h3>Community Building</h3>
+                    <p>Strengthen neighborhood bonds through collective action and shared benefits</p>
+                    <div class="feature-highlight">Unite your community</div>
+                </div>
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">📱</div>
+                    <h3>Real-time Tracking</h3>
+                    <p>Live progress bars show order completion. Get instant notifications on status updates</p>
+                    <div class="feature-highlight">Always informed</div>
+                </div>
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Geographic Smart Matching</h3>
+                    <p>Automatic region assignment using GPS. Connect with neighbors in your area</p>
+                    <div class="feature-highlight">Location-based groups</div>
+                </div>
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast Delivery</h3>
+                    <p>Average 7-day completion cycle from announcement to delivery at your doorstep</p>
+                    <div class="feature-highlight">Quick turnaround</div>
+                </div>
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Secure Payments</h3>
+                    <p>Multiple payment options with escrow protection. Automatic refunds if targets aren't met</p>
+                    <div class="feature-highlight">PCI DSS compliant</div>
+                </div>
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">📊</div>
+                    <h3>Smart Analytics</h3>
+                    <p>Track your savings, order history, and community impact through personalized dashboards</p>
+                    <div class="feature-highlight">Data-driven insights</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section id="tech" class="tech-section">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-badge glass-effect">
+                    <span class="badge-icon">🛠️</span>
+                    <span>Technology</span>
+                </span>
+                <h2 class="section-title">Built With <span class="gradient-text">Cutting-Edge</span> Technology</h2>
+                <p class="section-description">Enterprise-grade infrastructure for reliability and scale</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h3 class="tech-category-title">Frontend</h3>
+                    <div class="tech-items">
+                        <div class="tech-item glass-effect">
+                            <div class="tech-icon">⚛️</div>
+                            <div class="tech-info">
+                                <h4>React Native</h4>
+                                <p>Cross-platform mobile app</p>
+                            </div>
+                        </div>
+                        <div class="tech-item glass-effect">
+                            <div class="tech-icon">🎨</div>
+                            <div class="tech-info">
+                                <h4>Glassmorphism UI</h4>
+                                <p>Modern design system</p>
+                            </div>
+                        </div>
+                        <div class="tech-item glass-effect">
+                            <div class="tech-icon">📦</div>
+                            <div class="tech-info">
+                                <h4>Redux Toolkit</h4>
+                                <p>State management</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3 class="tech-category-title">Backend</h3>
+                    <div class="tech-items">
+                        <div class="tech-item glass-effect">
+                            <div class="tech-icon">🟢</div>
+                            <div class="tech-info">
+                                <h4>Node.js + Express</h4>
+                                <p>RESTful API server</p>
+                            </div>
+                        </div>
+                        <div class="tech-item glass-effect">
+                            <div class="tech-icon">🐘</div>
+                            <div class="tech-info">
+                                <h4>PostgreSQL + PostGIS</h4>
+                                <p>Geospatial database</p>
+                            </div>
+                        </div>
+                        <div class="tech-item glass-effect">
+                            <div class="tech-icon">⚡</div>
+                            <div class="tech-info">
+                                <h4>Redis</h4>
+                                <p>Real-time caching</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3 class="tech-category-title">Infrastructure</h3>
+                    <div class="tech-items">
+                        <div class="tech-item glass-effect">
+                            <div class="tech-icon">☁️</div>
+                            <div class="tech-info">
+                                <h4>AWS / GCP</h4>
+                                <p>Cloud hosting</p>
+                            </div>
+                        </div>
+                        <div class="tech-item glass-effect">
+                            <div class="tech-icon">🐳</div>
+                            <div class="tech-info">
+                                <h4>Docker + K8s</h4>
+                                <p>Containerization</p>
+                            </div>
+                        </div>
+                        <div class="tech-item glass-effect">
+                            <div class="tech-icon">🔔</div>
+                            <div class="tech-info">
+                                <h4>Firebase FCM</h4>
+                                <p>Push notifications</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3 class="tech-category-title">Services</h3>
+                    <div class="tech-items">
+                        <div class="tech-item glass-effect">
+                            <div class="tech-icon">🗺️</div>
+                            <div class="tech-info">
+                                <h4>Google Maps API</h4>
+                                <p>Location services</p>
+                            </div>
+                        </div>
+                        <div class="tech-item glass-effect">
+                            <div class="tech-icon">💳</div>
+                            <div class="tech-info">
+                                <h4>Fawry / Paymob</h4>
+                                <p>Payment gateway</p>
+                            </div>
+                        </div>
+                        <div class="tech-item glass-effect">
+                            <div class="tech-icon">📱</div>
+                            <div class="tech-info">
+                                <h4>Twilio SMS</h4>
+                                <p>OTP authentication</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="cta-section">
+        <div class="container">
+            <div class="cta-content glass-effect">
+                <div class="cta-text">
+                    <h2>Ready to Transform Your Shopping?</h2>
+                    <p>Join thousands of families saving money through collective purchasing power</p>
+                </div>
+                <div class="cta-actions">
+                    <a href="https://wa.me/201113903070" target="_blank" class="btn btn-primary btn-large">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M17.472 14.382C17.015 14.153 15.063 13.194 14.663 13.049C14.263 12.904 13.974 12.832 13.684 13.289C13.394 13.746 12.671 14.632 12.412 14.922C12.153 15.212 11.894 15.245 11.437 15.016C10.98 14.787 9.51 14.307 7.772 12.755C6.41 11.545 5.508 10.052 5.249 9.595C4.99 9.138 5.222 8.897 5.451 8.668C5.656 8.463 5.908 8.133 6.137 7.874C6.366 7.615 6.438 7.423 6.583 7.133C6.728 6.843 6.656 6.584 6.541 6.355C6.426 6.126 5.508 4.174 5.141 3.26C4.774 2.346 4.407 2.478 4.15 2.478C3.893 2.478 3.604 2.445 3.314 2.445C3.024 2.445 2.567 2.56 2.167 3.017C1.767 3.474 0.742 4.433 0.742 6.385C0.742 8.337 2.2 10.224 2.429 10.514C2.658 10.804 5.508 15.191 9.84 16.912C14.172 18.633 14.172 18.059 14.992 17.994C15.812 17.929 17.439 17.037 17.806 16.112C18.173 15.187 18.173 14.394 18.058 14.197C17.943 14 17.654 13.885 17.472 14.382Z" fill="currentColor"/>
+                            <path d="M20.52 3.449C18.24 1.245 15.24 0 12.045 0C5.463 0 0.104 5.334 0.104 11.885C0.104 13.983 0.677 16.032 1.761 17.835L0 24L6.304 22.267C8.032 23.245 10.021 23.769 12.045 23.769C18.627 23.769 23.986 18.435 23.986 11.885C23.986 8.713 22.8 5.654 20.52 3.449ZM12.045 21.785C10.266 21.785 8.52 21.294 7.005 20.381L6.658 20.184L2.883 21.229L3.942 17.543L3.728 17.184C2.727 15.61 2.199 13.773 2.199 11.885C2.199 6.49 6.623 2.084 12.045 2.084C14.672 2.084 17.146 3.098 19.005 4.949C20.864 6.8 21.891 9.261 21.891 11.885C21.891 17.28 17.467 21.785 12.045 21.785Z" fill="currentColor"/>
+                        </svg>
+                        <span>Connect on WhatsApp</span>
+                    </a>
+                    <a href="https://moh222salah.github.io/cv" target="_blank" class="btn btn-secondary btn-large">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M20 7H4C2.89543 7 2 7.89543 2 9V19C2 20.1046 2.89543 21 4 21H20C21.1046 21 22 20.1046 22 19V9C22 7.89543 21.1046 7 20 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 21V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>View Portfolio</span>
+                    </a>
+                </div>
+                <div class="cta-info">
+                    <p>📲 Direct: <a href="https://wa.me/201113903070" target="_blank">+20 111 390 3070</a></p>
+                    <p>💼 Portfolio: <a href="https://moh222salah.github.io/cv" target="_blank">moh222salah.github.io/cv</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">🏘️</span>
+                        <span class="logo-text">Mantiqati</span>
+                    </div>
+                    <p>Revolutionizing community shopping through collective purchasing power</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Platform</h4>
+                        <ul>
+                            <li><a href="#hero">Home</a></li>
+                            <li><a href="#stats">Impact</a></li>
+                            <li><a href="#timeline">How It Works</a></li>
+                            <li><a href="#features">Features</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Technology</h4>
+                        <ul>
+                            <li><a href="#tech">Tech Stack</a></li>
+                            <li><a href="#tech">Architecture</a></li>
+                            <li><a href="#tech">Security</a></li>
+                            <li><a href="#tech">API</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="https://wa.me/201113903070" target="_blank">WhatsApp</a></li>
+                            <li><a href="https://moh222salah.github.io/cv" target="_blank">Portfolio</a></li>
+                            <li><a href="#cta">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mantiqati. Developed with 💚 by <a href="https://moh222salah.github.io/cv" target="_blank">Mohamed Salah</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
