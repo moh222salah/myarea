@@ -1,0 +1,2422 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mantiqati - Revolutionary Collective Purchasing Platform | Save 40-50% on Essential Goods">
+    <meta name="keywords" content="collective buying, group purchasing, mantiqati, save money, egypt, community shopping">
+    <meta name="author" content="Mohamed Salah">
+    <title>Mantiqati </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style> 
+
+
+
+
+    /* ========================================
+   MANTIQATI - GLASSMORPHISM DESIGN SYSTEM
+   ======================================== */
+
+/* CSS Variables */
+:root {
+    /* Color Palette */
+    --primary-color: #10b981;
+    --primary-dark: #059669;
+    --primary-light: #34d399;
+    --secondary-color: #3b82f6;
+    --accent-color: #f59e0b;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+    --gradient-secondary: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    --gradient-warm: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+    
+    /* Glass Effect */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    
+    /* Typography */
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    
+    /* Spacing */
+    --container-width: 1200px;
+    --section-padding: 120px;
+    --section-padding-mobile: 60px;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Z-index */
+    --z-background: -1;
+    --z-content: 1;
+    --z-navbar: 100;
+    --z-modal: 1000;
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--font-family);
+    background: #0a0e27;
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ========================================
+   ANIMATED BACKGROUND
+   ======================================== */
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: var(--z-background);
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 50%, #0f172a 0%, #0a0e27 100%);
+}
+
+.gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    animation: float 20s infinite ease-in-out;
+}
+
+.orb-1 {
+    width: 500px;
+    height: 500px;
+    background: var(--gradient-primary);
+    top: -250px;
+    left: -250px;
+    animation-delay: 0s;
+}
+
+.orb-2 {
+    width: 400px;
+    height: 400px;
+    background: var(--gradient-secondary);
+    bottom: -200px;
+    right: -200px;
+    animation-delay: -5s;
+}
+
+.orb-3 {
+    width: 350px;
+    height: 350px;
+    background: var(--gradient-warm);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: -10s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+        transform: translate(-20px, 30px) scale(0.9);
+    }
+}
+
+/* Particles */
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* Glass Effect Utility */
+.glass-effect {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+}
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: var(--z-navbar);
+    padding: 16px 0;
+    transition: all var(--transition-normal);
+}
+
+.navbar.scrolled {
+    padding: 12px 0;
+    background: rgba(10, 14, 39, 0.8);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.logo-icon {
+    font-size: 32px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.logo-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    position: relative;
+    transition: color var(--transition-fast);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #ffffff;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: width var(--transition-normal);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 2px;
+    background: #ffffff;
+    transition: all var(--transition-normal);
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+    position: relative;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    animation: fadeInDown 0.8s ease;
+}
+
+.badge-icon {
+    font-size: 18px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.hero-title {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.title-subtitle {
+    display: block;
+    font-size: 32px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.hero-description {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 32px;
+    line-height: 1.8;
+    animation: fadeInUp 0.8s ease 0.4s both;
+}
+
+.hero-stats-mini {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 40px;
+    animation: fadeInUp 0.8s ease 0.6s both;
+}
+
+.mini-stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.mini-stat-number {
+    font-size: 32px;
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.mini-stat-label {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s ease 0.8s both;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all var(--transition-normal);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: #ffffff;
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(16, 185, 129, 0.5);
+}
+
+.btn-secondary {
+    background: var(--glass-bg);
+    color: #ffffff;
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.btn-large {
+    padding: 16px 32px;
+    font-size: 16px;
+}
+
+/* Hero Visual */
+.hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1s ease 0.5s both;
+}
+
+.hero-card {
+    width: 100%;
+    max-width: 450px;
+    padding: 24px;
+    border-radius: 24px;
+    animation: float 6s infinite ease-in-out;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.card-icon {
+    font-size: 24px;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.card-product {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.product-image {
+    font-size: 48px;
+}
+
+.product-info h4 {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.product-info p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.card-progress {
+    margin-bottom: 20px;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.progress-percentage {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.progress-bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 50px;
+    transition: width 1s ease;
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.progress-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.card-price {
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.price-compare {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.old-price,
+.new-price {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.price-compare .label {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.price-compare .value {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.strike {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.savings-badge {
+    text-align: center;
+    padding: 8px;
+    background: rgba(16, 185, 129, 0.2);
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--primary-light);
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    animation: fadeIn 1s ease 1.5s both;
+}
+
+.mouse {
+    width: 24px;
+    height: 36px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    position: relative;
+}
+
+.wheel {
+    width: 3px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scroll 2s infinite;
+}
+
+@keyframes scroll {
+    0%, 100% {
+        top: 6px;
+        opacity: 1;
+    }
+    50% {
+        top: 16px;
+        opacity: 0;
+    }
+}
+
+.scroll-indicator span {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ========================================
+   SECTIONS COMMON STYLES
+   ======================================== */
+section {
+    padding: var(--section-padding) 0;
+    position: relative;
+}
+
+.section-header {
+    margin-bottom: 64px;
+}
+
+.section-header.center {
+    text-align: center;
+}
+
+.section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.section-title {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.section-description {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   STATS SECTION
+   ======================================== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+}
+
+.stat-card {
+    padding: 32px;
+    border-radius: 20px;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.stat-card:hover::before {
+    opacity: 0.05;
+}
+
+.stat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(16, 185, 129, 0.2);
+}
+
+.stat-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.stat-number {
+    font-size: 48px;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+}
+
+.stat-trend {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+.stat-trend.positive {
+    color: var(--primary-color);
+}
+
+.stat-trend.neutral {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ========================================
+   TIMELINE SECTION
+   ======================================== */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    margin-bottom: 48px;
+    position: relative;
+}
+
+.timeline-item:nth-child(odd) {
+    flex-direction: row;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    border: 4px solid #0a0e27;
+    z-index: 2;
+    animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+    }
+}
+
+.timeline-content {
+    flex: 1;
+    max-width: calc(50% - 40px);
+    padding: 24px;
+    border-radius: 16px;
+    transition: all var(--transition-normal);
+}
+
+.timeline-content:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 40px rgba(16, 185, 129, 0.2);
+}
+
+.timeline-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--gradient-primary);
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.timeline-content h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.timeline-content p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.timeline-details {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ========================================
+   FEATURES SECTION
+   ======================================== */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.feature-card {
+    padding: 32px;
+    border-radius: 20px;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.feature-card:hover::before {
+    opacity: 0.05;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(16, 185, 129, 0.2);
+}
+
+.feature-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.feature-card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.feature-highlight {
+    display: inline-block;
+    padding: 6px 12px;
+    background: rgba(16, 185, 129, 0.2);
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary-light);
+}
+
+/* ========================================
+   TECH STACK SECTION
+   ======================================== */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+}
+
+.tech-category-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.tech-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tech-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 12px;
+    transition: all var(--transition-normal);
+}
+
+.tech-item:hover {
+    transform: translateX(8px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.tech-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+}
+
+.tech-info h4 {
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.tech-info p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* ========================================
+   CTA SECTION
+   ======================================== */
+.cta-section {
+    padding: 80px 0;
+}
+
+.cta-content {
+    padding: 64px;
+    border-radius: 32px;
+    text-align: center;
+}
+
+.cta-text h2 {
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.cta-text p {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 40px;
+}
+
+.cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+
+.cta-info {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.cta-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.cta-info a:hover {
+    text-decoration: underline;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.footer {
+    padding: 64px 0 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+}
+
+.footer-brand p {
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 16px;
+    line-height: 1.7;
+}
+
+.footer-column h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color var(--transition-fast);
+}
+
+.footer-column ul li a:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+}
+
+.footer-bottom a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll Animation Classes */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN - MOBILE FIRST
+   ======================================== */
+@media (max-width: 1024px) {
+    :root {
+        --section-padding: 80px;
+    }
+    
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 48px;
+    }
+    
+    .hero-visual {
+        margin-top: 48px;
+    }
+    
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        flex-direction: row !important;
+    }
+    
+    .timeline-dot {
+        left: 20px;
+    }
+    
+    .timeline-content {
+        max-width: 100%;
+        margin-left: 60px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --section-padding: var(--section-padding-mobile);
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(10, 14, 39, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        transition: left var(--transition-normal);
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+    
+    .hero-title {
+        font-size: 36px;
+    }
+    
+    .title-subtitle {
+        font-size: 24px;
+    }
+    
+    .hero-description {
+        font-size: 16px;
+    }
+    
+    .hero-stats-mini {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .section-title {
+        font-size: 32px;
+    }
+    
+    .section-description {
+        font-size: 16px;
+    }
+    
+    .stats-grid,
+    .features-grid,
+    .tech-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-content {
+        padding: 40px 24px;
+    }
+    
+    .cta-text h2 {
+        font-size: 28px;
+    }
+    
+    .cta-actions {
+        flex-direction: column;
+    }
+    
+    .cta-actions .btn {
+        width: 100%;
+    }
+    
+    .cta-info {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+    
+    .hero-title {
+        font-size: 28px;
+    }
+    
+    .title-subtitle {
+        font-size: 20px;
+    }
+    
+    .mini-stat-number {
+        font-size: 24px;
+    }
+    
+    .section-title {
+        font-size: 28px;
+    }
+    
+    .stat-number {
+        font-size: 36px;
+    }
+    }
+    </style> 
+
+
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="background-container">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar glass-effect">
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="logo-icon">🏘️</span>
+                <span class="logo-text">Mantiqati</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#stats" class="nav-link">Impact</a></li>
+                <li><a href="#timeline" class="nav-link">Process</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#tech" class="nav-link">Technology</a></li>
+                <li><a href="#cta" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge glass-effect">
+                    <span class="badge-icon">✨</span>
+                    <span>Revolutionizing Community Shopping</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="gradient-text">Mantiqati</span>
+                    <br>
+                    <span class="title-subtitle">Collective Purchasing Platform</span>
+                </h1>
+                <p class="hero-description">
+                    Join your neighbors in bulk buying and save <strong>40-50%</strong> on essential goods. 
+                    Breaking retail monopolies through community power.
+                </p>
+                <div class="hero-stats-mini">
+                    <div class="mini-stat">
+                        <span class="mini-stat-number">47%</span>
+                        <span class="mini-stat-label">Average Savings</span>
+                    </div>
+                    <div class="mini-stat">
+                        <span class="mini-stat-number">1000+</span>
+                        <span class="mini-stat-label">Target Users</span>
+                    </div>
+                    <div class="mini-stat">
+                        <span class="mini-stat-number">200+</span>
+                        <span class="mini-stat-label">Families per Region</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#cta" class="btn btn-primary">
+                        <span>Get Started</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#timeline" class="btn btn-secondary">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 5V10L13 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span>How It Works</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card glass-effect">
+                    <div class="card-header">
+                        <span class="card-icon">📦</span>
+                        <span class="card-title">Active Group Purchase</span>
+                    </div>
+                    <div class="card-product">
+                        <div class="product-image">🌾</div>
+                        <div class="product-info">
+                            <h4>Premium Rice - 1 Ton</h4>
+                            <p>Maadi Region, Cairo</p>
+                        </div>
+                    </div>
+                    <div class="card-progress">
+                        <div class="progress-header">
+                            <span>Progress</span>
+                            <span class="progress-percentage">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                        <div class="progress-stats">
+                            <span>850 / 1000 kg</span>
+                            <span>170 orders</span>
+                        </div>
+                    </div>
+                    <div class="card-price">
+                        <div class="price-compare">
+                            <div class="old-price">
+                                <span class="label">Retail Price</span>
+                                <span class="value strike">30 EGP/kg</span>
+                            </div>
+                            <div class="new-price">
+                                <span class="label">Group Price</span>
+                                <span class="value gradient-text">16 EGP/kg</span>
+                            </div>
+                        </div>
+                        <div class="savings-badge">
+                            Save 47% 💰
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="stats-section">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-badge glass-effect">
+                    <span class="badge-icon">📊</span>
+                    <span>Impact & Reach</span>
+                </span>
+                <h2 class="section-title">Transforming Communities<br>Through <span class="gradient-text">Collective Power</span></h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card glass-effect">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-target="3360">0</div>
+                        <div class="stat-label">EGP Saved Annually<br>Per Family</div>
+                    </div>
+                    <div class="stat-trend positive">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M8 12V4M8 4L4 8M8 4L12 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>47% savings</span>
+                    </div>
+                </div>
+                <div class="stat-card glass-effect">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-target="200">0</div>
+                        <div class="stat-label">Families<br>Per Region</div>
+                    </div>
+                    <div class="stat-trend positive">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M8 12V4M8 4L4 8M8 4L12 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Growing daily</span>
+                    </div>
+                </div>
+                <div class="stat-card glass-effect">
+                    <div class="stat-icon">📦</div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-target="1000">0</div>
+                        <div class="stat-label">Kg Per<br>Group Purchase</div>
+                    </div>
+                    <div class="stat-trend neutral">
+                        <span>Bulk wholesale</span>
+                    </div>
+                </div>
+                <div class="stat-card glass-effect">
+                    <div class="stat-icon">⚡</div>
+                    <div class="stat-content">
+                        <div class="stat-number" data-target="7">0</div>
+                        <div class="stat-label">Days<br>Average Completion</div>
+                    </div>
+                    <div class="stat-trend positive">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M8 12V4M8 4L4 8M8 4L12 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Fast delivery</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="timeline-section">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-badge glass-effect">
+                    <span class="badge-icon">🔄</span>
+                    <span>Process Flow</span>
+                </span>
+                <h2 class="section-title">How <span class="gradient-text">Mantiqati</span> Works</h2>
+                <p class="section-description">Four simple steps to massive savings</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-effect">
+                        <div class="timeline-badge">Step 1</div>
+                        <h3>📢 Product Announcement</h3>
+                        <p>A bulk purchase opportunity (e.g., 1 ton of rice at wholesale price) is announced to your region. Target quantity and deadline are set.</p>
+                        <div class="timeline-details">
+                            <span class="detail-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 4V8L10.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                Day 1
+                            </span>
+                            <span class="detail-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M3 8L6.5 11.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                0 / 1000 kg
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-effect">
+                        <div class="timeline-badge">Step 2</div>
+                        <h3>🛒 Order & Pay</h3>
+                        <p>Residents place orders (minimum 5kg) and pay upfront via the app. Real-time progress bar shows how close you are to reaching the target.</p>
+                        <div class="timeline-details">
+                            <span class="detail-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 4V8L10.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                Days 2-5
+                            </span>
+                            <span class="detail-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <rect x="2" y="4" width="12" height="8" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M5 4V3C5 2.44772 5.44772 2 6 2H10C10.5523 2 11 2.44772 11 3V4" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                850 / 1000 kg
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-effect">
+                        <div class="timeline-badge">Step 3</div>
+                        <h3>✅ Purchase Complete</h3>
+                        <p>Once target is reached, order is placed with the supplier. Delivery is scheduled within 24-48 hours. Notifications sent to all participants.</p>
+                        <div class="timeline-details">
+                            <span class="detail-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 4V8L10.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                Day 6
+                            </span>
+                            <span class="detail-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M5.5 8L7 9.5L10.5 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                1000 / 1000 kg
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-effect">
+                        <div class="timeline-badge">Step 4</div>
+                        <h3>📍 Pickup & Delivery</h3>
+                        <p>Collect your order from designated pickup points using QR code. Volunteers distribute portions. Rate the experience and help improve the platform.</p>
+                        <div class="timeline-details">
+                            <span class="detail-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 4V8L10.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                Day 8
+                            </span>
+                            <span class="detail-item">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M8 2L9.5 5.5L13 6L10.5 8.5L11 12L8 10L5 12L5.5 8.5L3 6L6.5 5.5L8 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                                </svg>
+                                Complete
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-badge glass-effect">
+                    <span class="badge-icon">⚡</span>
+                    <span>Key Features</span>
+                </span>
+                <h2 class="section-title">Why Choose <span class="gradient-text">Mantiqati</span></h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">💰</div>
+                    <h3>Massive Savings</h3>
+                    <p>Save 40-50% on essential goods by buying directly from wholesalers at bulk prices</p>
+                    <div class="feature-highlight">47% average discount</div>
+                </div>
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Complete Transparency</h3>
+                    <p>View actual supplier invoices and costs. No hidden fees, no markup surprises</p>
+                    <div class="feature-highlight">100% transparent pricing</div>
+                </div>
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">🏘️</div>
+                    <h3>Community Building</h3>
+                    <p>Strengthen neighborhood bonds through collective action and shared benefits</p>
+                    <div class="feature-highlight">Unite your community</div>
+                </div>
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">📱</div>
+                    <h3>Real-time Tracking</h3>
+                    <p>Live progress bars show order completion. Get instant notifications on status updates</p>
+                    <div class="feature-highlight">Always informed</div>
+                </div>
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Geographic Smart Matching</h3>
+                    <p>Automatic region assignment using GPS. Connect with neighbors in your area</p>
+                    <div class="feature-highlight">Location-based groups</div>
+                </div>
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast Delivery</h3>
+                    <p>Average 7-day completion cycle from announcement to delivery at your doorstep</p>
+                    <div class="feature-highlight">Quick turnaround</div>
+                </div>
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Secure Payments</h3>
+                    <p>Multiple payment options with escrow protection. Automatic refunds if targets aren't met</p>
+                    <div class="feature-highlight">PCI DSS compliant</div>
+                </div>
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">📊</div>
+                    <h3>Smart Analytics</h3>
+                    <p>Track your savings, order history, and community impact through personalized dashboards</p>
+                    <div class="feature-highlight">Data-driven insights</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section id="tech" class="tech-section">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-badge glass-effect">
+                    <span class="badge-icon">🛠️</span>
+                    <span>Technology</span>
+                </span>
+                <h2 class="section-title">Built With <span class="gradient-text">Cutting-Edge</span> Technology</h2>
+                <p class="section-description">Enterprise-grade infrastructure for reliability and scale</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h3 class="tech-category-title">Frontend</h3>
+                    <div class="tech-items">
+                        <div class="tech-item glass-effect">
+                            <div class="tech-icon">⚛️</div>
+                            <div class="tech-info">
+                                <h4>React Native</h4>
+                                <p>Cross-platform mobile app</p>
+                            </div>
+                        </div>
+                        <div class="tech-item glass-effect">
+                            <div class="tech-icon">🎨</div>
+                            <div class="tech-info">
+                                <h4>Glassmorphism UI</h4>
+                                <p>Modern design system</p>
+                            </div>
+                        </div>
+                        <div class="tech-item glass-effect">
+                            <div class="tech-icon">📦</div>
+                            <div class="tech-info">
+                                <h4>Redux Toolkit</h4>
+                                <p>State management</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3 class="tech-category-title">Backend</h3>
+                    <div class="tech-items">
+                        <div class="tech-item glass-effect">
+                            <div class="tech-icon">🟢</div>
+                            <div class="tech-info">
+                                <h4>Node.js + Express</h4>
+                                <p>RESTful API server</p>
+                            </div>
+                        </div>
+                        <div class="tech-item glass-effect">
+                            <div class="tech-icon">🐘</div>
+                            <div class="tech-info">
+                                <h4>PostgreSQL + PostGIS</h4>
+                                <p>Geospatial database</p>
+                            </div>
+                        </div>
+                        <div class="tech-item glass-effect">
+                            <div class="tech-icon">⚡</div>
+                            <div class="tech-info">
+                                <h4>Redis</h4>
+                                <p>Real-time caching</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3 class="tech-category-title">Infrastructure</h3>
+                    <div class="tech-items">
+                        <div class="tech-item glass-effect">
+                            <div class="tech-icon">☁️</div>
+                            <div class="tech-info">
+                                <h4>AWS / GCP</h4>
+                                <p>Cloud hosting</p>
+                            </div>
+                        </div>
+                        <div class="tech-item glass-effect">
+                            <div class="tech-icon">🐳</div>
+                            <div class="tech-info">
+                                <h4>Docker + K8s</h4>
+                                <p>Containerization</p>
+                            </div>
+                        </div>
+                        <div class="tech-item glass-effect">
+                            <div class="tech-icon">🔔</div>
+                            <div class="tech-info">
+                                <h4>Firebase FCM</h4>
+                                <p>Push notifications</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3 class="tech-category-title">Services</h3>
+                    <div class="tech-items">
+                        <div class="tech-item glass-effect">
+                            <div class="tech-icon">🗺️</div>
+                            <div class="tech-info">
+                                <h4>Google Maps API</h4>
+                                <p>Location services</p>
+                            </div>
+                        </div>
+                        <div class="tech-item glass-effect">
+                            <div class="tech-icon">💳</div>
+                            <div class="tech-info">
+                                <h4>Fawry / Paymob</h4>
+                                <p>Payment gateway</p>
+                            </div>
+                        </div>
+                        <div class="tech-item glass-effect">
+                            <div class="tech-icon">📱</div>
+                            <div class="tech-info">
+                                <h4>Twilio SMS</h4>
+                                <p>OTP authentication</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="cta-section">
+        <div class="container">
+            <div class="cta-content glass-effect">
+                <div class="cta-text">
+                    <h2>Ready to Transform Your Shopping?</h2>
+                    <p>Join thousands of families saving money through collective purchasing power</p>
+                </div>
+                <div class="cta-actions">
+                    <a href="https://wa.me/201113903070" target="_blank" class="btn btn-primary btn-large">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M17.472 14.382C17.015 14.153 15.063 13.194 14.663 13.049C14.263 12.904 13.974 12.832 13.684 13.289C13.394 13.746 12.671 14.632 12.412 14.922C12.153 15.212 11.894 15.245 11.437 15.016C10.98 14.787 9.51 14.307 7.772 12.755C6.41 11.545 5.508 10.052 5.249 9.595C4.99 9.138 5.222 8.897 5.451 8.668C5.656 8.463 5.908 8.133 6.137 7.874C6.366 7.615 6.438 7.423 6.583 7.133C6.728 6.843 6.656 6.584 6.541 6.355C6.426 6.126 5.508 4.174 5.141 3.26C4.774 2.346 4.407 2.478 4.15 2.478C3.893 2.478 3.604 2.445 3.314 2.445C3.024 2.445 2.567 2.56 2.167 3.017C1.767 3.474 0.742 4.433 0.742 6.385C0.742 8.337 2.2 10.224 2.429 10.514C2.658 10.804 5.508 15.191 9.84 16.912C14.172 18.633 14.172 18.059 14.992 17.994C15.812 17.929 17.439 17.037 17.806 16.112C18.173 15.187 18.173 14.394 18.058 14.197C17.943 14 17.654 13.885 17.472 14.382Z" fill="currentColor"/>
+                            <path d="M20.52 3.449C18.24 1.245 15.24 0 12.045 0C5.463 0 0.104 5.334 0.104 11.885C0.104 13.983 0.677 16.032 1.761 17.835L0 24L6.304 22.267C8.032 23.245 10.021 23.769 12.045 23.769C18.627 23.769 23.986 18.435 23.986 11.885C23.986 8.713 22.8 5.654 20.52 3.449ZM12.045 21.785C10.266 21.785 8.52 21.294 7.005 20.381L6.658 20.184L2.883 21.229L3.942 17.543L3.728 17.184C2.727 15.61 2.199 13.773 2.199 11.885C2.199 6.49 6.623 2.084 12.045 2.084C14.672 2.084 17.146 3.098 19.005 4.949C20.864 6.8 21.891 9.261 21.891 11.885C21.891 17.28 17.467 21.785 12.045 21.785Z" fill="currentColor"/>
+                        </svg>
+                        <span>Connect on WhatsApp</span>
+                    </a>
+                    <a href="https://moh222salah.github.io/cv" target="_blank" class="btn btn-secondary btn-large">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M20 7H4C2.89543 7 2 7.89543 2 9V19C2 20.1046 2.89543 21 4 21H20C21.1046 21 22 20.1046 22 19V9C22 7.89543 21.1046 7 20 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 21V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>View Portfolio</span>
+                    </a>
+                </div>
+                <div class="cta-info">
+                    <p>📲 Direct: <a href="https://wa.me/201113903070" target="_blank">+20 111 390 3070</a></p>
+                    <p>💼 Portfolio: <a href="https://moh222salah.github.io/cv" target="_blank">moh222salah.github.io/cv</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">🏘️</span>
+                        <span class="logo-text">Mantiqati</span>
+                    </div>
+                    <p>Revolutionizing community shopping through collective purchasing power</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Platform</h4>
+                        <ul>
+                            <li><a href="#hero">Home</a></li>
+                            <li><a href="#stats">Impact</a></li>
+                            <li><a href="#timeline">How It Works</a></li>
+                            <li><a href="#features">Features</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Technology</h4>
+                        <ul>
+                            <li><a href="#tech">Tech Stack</a></li>
+                            <li><a href="#tech">Architecture</a></li>
+                            <li><a href="#tech">Security</a></li>
+                            <li><a href="#tech">API</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="https://wa.me/201113903070" target="_blank">WhatsApp</a></li>
+                            <li><a href="https://moh222salah.github.io/cv" target="_blank">Portfolio</a></li>
+                            <li><a href="#cta">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mantiqati. Developed with 💚 by <a href="https://moh222salah.github.io/cv" target="_blank">Mohamed Salah</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+        // ========================================
+// MANTIQATI - INTERACTIVE FEATURES
+// ========================================
+
+// DOM Content Loaded
+document.addEventListener('DOMContentLoaded', () => {
+    initNavbar();
+    initMobileMenu();
+    initScrollAnimations();
+    initCounterAnimations();
+    initParticles();
+    initSmoothScroll();
+});
+
+// ========================================
+// NAVBAR FUNCTIONALITY
+// ========================================
+function initNavbar() {
+    const navbar = document.querySelector('.navbar');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    
+    // Active link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    
+    window.addEventListener('scroll', () => {
+        const scrollY = window.pageYOffset;
+        
+        sections.forEach(section => {
+            const sectionHeight = section.offsetHeight;
+            const sectionTop = section.offsetTop - 100;
+            const sectionId = section.getAttribute('id');
+            
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    });
+}
+
+// ========================================
+// MOBILE MENU
+// ========================================
+function initMobileMenu() {
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navMenu = document.getElementById('navMenu');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    mobileMenuToggle.addEventListener('click', () => {
+        mobileMenuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+    });
+    
+    // Close menu when clicking on a link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.navbar') && navMenu.classList.contains('active')) {
+            mobileMenuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+}
+
+// ========================================
+// SCROLL ANIMATIONS (INTERSECTION OBSERVER)
+// ========================================
+function initScrollAnimations() {
+    const revealElements = document.querySelectorAll('.stat-card, .feature-card, .timeline-item, .tech-item');
+    
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('reveal', 'active');
+                }, index * 100);
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    revealElements.forEach(el => {
+        el.classList.add('reveal');
+        revealObserver.observe(el);
+    });
+}
+
+// ========================================
+// COUNTER ANIMATIONS
+// ========================================
+function initCounterAnimations() {
+    const counters = document.querySelectorAll('.stat-number');
+    const speed = 2000; // Animation duration in ms
+    
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = parseInt(counter.getAttribute('data-target'));
+                const increment = target / (speed / 16); // 60fps
+                let current = 0;
+                
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.textContent = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                
+                updateCounter();
+                counterObserver.unobserve(counter);
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+    
+    counters.forEach(counter => {
+        counterObserver.observe(counter);
+    });
+}
+
+// ========================================
+// PARTICLES BACKGROUND
+// ========================================
+function initParticles() {
+    const particlesContainer = document.getElementById('particles');
+    const particleCount = 50;
+    
+    for (let i = 0; i < particleCount; i++) {
+        createParticle(particlesContainer);
+    }
+}
+
+function createParticle(container) {
+    const particle = document.createElement('div');
+    const size = Math.random() * 3 + 1;
+    const startX = Math.random() * window.innerWidth;
+    const startY = Math.random() * window.innerHeight;
+    const duration = Math.random() * 20 + 10;
+    const delay = Math.random() * 5;
+    
+    particle.style.cssText = `
+        position: absolute;
+        width: ${size}px;
+        height: ${size}px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        left: ${startX}px;
+        top: ${startY}px;
+        pointer-events: none;
+        animation: particleFloat ${duration}s ${delay}s infinite ease-in-out;
+    `;
+    
+    container.appendChild(particle);
+}
+
+// Add particle animation to CSS dynamically
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes particleFloat {
+        0%, 100% {
+            transform: translate(0, 0);
+            opacity: 0;
+        }
+        10% {
+            opacity: 0.3;
+        }
+        50% {
+            transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px);
+            opacity: 0.5;
+        }
+        90% {
+            opacity: 0.3;
+        }
+    }
+`;
+document.head.appendChild(style);
+
+// ========================================
+// SMOOTH SCROLL
+// ========================================
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                const offsetTop = targetElement.offsetTop - 80;
+                
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+// ========================================
+// PROGRESS BAR ANIMATION
+// ========================================
+function animateProgressBar() {
+    const progressFill = document.querySelector('.progress-fill');
+    if (!progressFill) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const targetWidth = progressFill.style.width;
+                progressFill.style.width = '0%';
+                
+                setTimeout(() => {
+                    progressFill.style.width = targetWidth;
+                }, 100);
+                
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+    
+    observer.observe(progressFill);
+}
+
+// Initialize progress bar animation
+animateProgressBar();
+
+// ========================================
+// BUTTON RIPPLE EFFECT
+// ========================================
+document.querySelectorAll('.btn').forEach(button => {
+    button.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.cssText = `
+            position: absolute;
+            width: ${size}px;
+            height: ${size}px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            left: ${x}px;
+            top: ${y}px;
+            pointer-events: none;
+            transform: scale(0);
+            animation: ripple 0.6s ease-out;
+        `;
+        
+        this.style.position = 'relative';
+        this.style.overflow = 'hidden';
+        this.appendChild(ripple);
+        
+        setTimeout(() => ripple.remove(), 600);
+    });
+});
+
+// Add ripple animation
+const rippleStyle = document.createElement('style');
+rippleStyle.textContent = `
+    @keyframes ripple {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(rippleStyle);
+
+// ========================================
+// CARD TILT EFFECT (DESKTOP ONLY)
+// ========================================
+if (window.innerWidth > 768) {
+    const cards = document.querySelectorAll('.hero-card, .stat-card, .feature-card');
+    
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 20;
+            const rotateY = (centerX - x) / 20;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        });
+    });
+}
+
+// ========================================
+// PERFORMANCE OPTIMIZATION
+// ========================================
+
+// Debounce function for scroll events
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Optimize scroll events
+window.addEventListener('scroll', debounce(() => {
+    // Any additional scroll-based logic
+}, 10));
+
+// ========================================
+// LAZY LOADING IMAGES
+// ========================================
+if ('loading' in HTMLImageElement.prototype) {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    images.forEach(img => {
+        img.src = img.dataset.src;
+    });
+} else {
+    // Fallback for browsers that don't support lazy loading
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+    document.body.appendChild(script);
+}
+
+// ========================================
+// CONSOLE BRANDING
+// ========================================
+console.log('%c🏘️ Mantiqati', 'color: #10b981; font-size: 24px; font-weight: bold;');
+console.log('%cRevolutionary Collective Purchasing Platform', 'color: #3b82f6; font-size: 14px;');
+console.log('%cDeveloped by Mohamed Salah', 'color: #ffffff; font-size: 12px;');
+console.log('%c💼 Portfolio: https://moh222salah.github.io/cv', 'color: #f59e0b; font-size: 12px;');
+console.log('%c📲 WhatsApp: +20 111 390 3070', 'color: #10b981; font-size: 12px;');
+
+// ========================================
+// PAGE LOAD PERFORMANCE TRACKING
+// ========================================
+window.addEventListener('load', () => {
+    const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+    console.log(`⚡ Page loaded in ${loadTime}ms`);
+    
+    // Track performance metrics
+    if (window.performance && window.performance.getEntriesByType) {
+        const paintMetrics = performance.getEntriesByType('paint');
+        paintMetrics.forEach(metric => {
+            console.log(`🎨 ${metric.name}: ${Math.round(metric.startTime)}ms`);
+        });
+    }
+});
+
+// ========================================
+// EASTER EGG - KONAMI CODE
+// ========================================
+let konamiCode = [];
+const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+
+document.addEventListener('keydown', (e) => {
+    konamiCode.push(e.keyCode);
+    konamiCode = konamiCode.slice(-10);
+    
+    if (konamiCode.join(',') === konamiSequence.join(',')) {
+        activateEasterEgg();
+        konamiCode = [];
+    }
+});
+
+function activateEasterEgg() {
+    const message = document.createElement('div');
+    message.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(16, 185, 129, 0.95);
+        backdrop-filter: blur(10px);
+        color: white;
+        padding: 40px 60px;
+        border-radius: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        z-index: 10000;
+        animation: bounceIn 0.5s ease;
+    `;
+    message.innerHTML = '🎉 You found the secret!<br><small style="font-size: 16px; font-weight: normal;">Save an extra 5% on your first order!</small>';
+    document.body.appendChild(message);
+    
+    setTimeout(() => {
+        message.style.animation = 'fadeOut 0.5s ease';
+        setTimeout(() => message.remove(), 500);
+    }, 3000);
+}
+
+// Add bounce animation
+const easterEggStyle = document.createElement('style');
+easterEggStyle.textContent = `
+    @keyframes bounceIn {
+        0% {
+            transform: translate(-50%, -50%) scale(0);
+        }
+        50% {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        100% {
+            transform: translate(-50%, -50%) scale(1);
+        }
+    }
+    @keyframes fadeOut {
+        to {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.8);
+        }
+    }
+`;
+document.head.appendChild(easterEggStyle);
+
+// ========================================
+// VIEWPORT HEIGHT FIX (MOBILE BROWSERS)
+// ========================================
+function setViewportHeight() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+setViewportHeight();
+window.addEventListener('resize', debounce(setViewportHeight, 100));
+
+// ========================================
+// PREVENT CONSOLE ERRORS
+// ========================================
+window.addEventListener('error', (e) => {
+    if (e.target.tagName === 'IMG') {
+        e.target.style.display = 'none';
+    }
+});
+
+// ========================================
+// ACCESSIBILITY ENHANCEMENTS
+// ========================================
+
+// Skip to main content
+const skipLink = document.createElement('a');
+skipLink.href = '#hero';
+skipLink.className = 'skip-link';
+skipLink.textContent = 'Skip to main content';
+skipLink.style.cssText = `
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-color);
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    z-index: 10000;
+`;
+skipLink.addEventListener('focus', () => {
+    skipLink.style.top = '0';
+});
+skipLink.addEventListener('blur', () => {
+    skipLink.style.top = '-40px';
+});
+document.body.insertBefore(skipLink, document.body.firstChild);
+
+// Keyboard navigation for cards
+document.querySelectorAll('.stat-card, .feature-card').forEach(card => {
+    card.setAttribute('tabindex', '0');
+    card.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            card.click();
+        }
+    });
+});
+
+// ========================================
+// EXPORT FOR TESTING
+// ========================================
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        initNavbar,
+        initMobileMenu,
+        initScrollAnimations,
+        initCounterAnimations,
+        initParticles,
+        initSmoothScroll
+    };
+                                        
+        
+    </script>
+</body>
+</html>
