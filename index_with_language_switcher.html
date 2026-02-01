@@ -1,0 +1,2385 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mantiqati - Revolutionary Collective Purchasing Platform | Save 40-50% on Essential Goods">
+    <meta name="keywords" content="collective buying, group purchasing, mantiqati, save money, egypt, community shopping">
+    <meta name="author" content="Mohamed Salah">
+    <title>Mantiqati </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style> 
+
+
+
+
+    /* ========================================
+   MANTIQATI - GLASSMORPHISM DESIGN SYSTEM
+   ======================================== */
+
+/* CSS Variables */
+:root {
+    /* Color Palette */
+    --primary-color: #10b981;
+    --primary-dark: #059669;
+    --primary-light: #34d399;
+    --secondary-color: #3b82f6;
+    --accent-color: #f59e0b;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+    --gradient-secondary: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    --gradient-warm: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+    
+    /* Glass Effect */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    
+    /* Typography */
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    
+    /* Spacing */
+    --container-width: 1200px;
+    --section-padding: 120px;
+    --section-padding-mobile: 60px;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Z-index */
+    --z-background: -1;
+    --z-content: 1;
+    --z-navbar: 100;
+    --z-modal: 1000;
+}
+
+/* Arabic Font Support */
+html[lang="ar"] {
+    --font-family: 'Cairo', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--font-family);
+    background: #0a0e27;
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: all 0.3s ease;
+}
+
+/* Container */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ========================================
+   LANGUAGE SWITCHER STYLES
+   ======================================== */
+.language-switcher {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1001;
+    animation: fadeInUp 0.6s ease;
+}
+
+html[dir="rtl"] .language-switcher {
+    right: auto;
+    left: 24px;
+}
+
+.lang-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: rgba(16, 185, 129, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgba(16, 185, 129, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.2);
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.lang-toggle-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+    z-index: -1;
+}
+
+.lang-toggle-btn:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+.lang-toggle-btn:hover {
+    transform: scale(1.1) rotate(5deg);
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 30px rgba(16, 185, 129, 0.4);
+}
+
+.lang-toggle-btn:active {
+    transform: scale(0.95);
+}
+
+.lang-text {
+    position: relative;
+    z-index: 1;
+    font-family: 'Cairo', sans-serif;
+    transition: transform 0.3s ease;
+}
+
+.lang-toggle-btn:hover .lang-text {
+    transform: scale(1.1);
+}
+
+/* Tooltip */
+.lang-toggle-btn::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    background: rgba(16, 185, 129, 0.95);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    margin-bottom: 8px;
+}
+
+.lang-toggle-btn:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Animation for language change */
+@keyframes langSwitch {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.2);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+.lang-switching {
+    animation: langSwitch 0.5s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .language-switcher {
+        bottom: 16px;
+        right: 16px;
+    }
+    
+    html[dir="rtl"] .language-switcher {
+        right: auto;
+        left: 16px;
+    }
+    
+    .lang-toggle-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 16px;
+    }
+}
+
+/* ========================================
+   ANIMATED BACKGROUND
+   ======================================== */
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: var(--z-background);
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 50%, #0f172a 0%, #0a0e27 100%);
+}
+
+.gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    animation: float 20s infinite ease-in-out;
+}
+
+.orb-1 {
+    width: 500px;
+    height: 500px;
+    background: var(--gradient-primary);
+    top: -250px;
+    left: -250px;
+    animation-delay: 0s;
+}
+
+.orb-2 {
+    width: 400px;
+    height: 400px;
+    background: var(--gradient-secondary);
+    bottom: -200px;
+    right: -200px;
+    animation-delay: -5s;
+}
+
+.orb-3 {
+    width: 350px;
+    height: 350px;
+    background: var(--gradient-warm);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: -10s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+        transform: translate(-20px, 30px) scale(0.9);
+    }
+}
+
+/* Particles */
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* Glass Effect Utility */
+.glass-effect {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+}
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: var(--z-navbar);
+    padding: 16px 0;
+    transition: all var(--transition-normal);
+}
+
+.navbar.scrolled {
+    padding: 12px 0;
+    background: rgba(10, 14, 39, 0.8);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.logo-icon {
+    font-size: 32px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.logo-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    position: relative;
+    transition: color var(--transition-fast);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #ffffff;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: width var(--transition-normal);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 2px;
+    background: #ffffff;
+    transition: all var(--transition-normal);
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+    position: relative;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    animation: fadeInDown 0.8s ease;
+}
+
+.badge-icon {
+    font-size: 18px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.hero-title {
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    animation: fadeInUp 1s ease;
+}
+
+.gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-description {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 32px;
+    line-height: 1.8;
+    animation: fadeInUp 1.2s ease;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeInUp 1.4s ease;
+}
+
+.btn {
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+}
+
+.btn-secondary {
+    background: var(--glass-bg);
+    color: #ffffff;
+    border: 2px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+    border-color: var(--primary-color);
+    background: rgba(16, 185, 129, 0.1);
+}
+
+/* Hero Cards */
+.hero-cards {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    animation: fadeInRight 1s ease;
+}
+
+.hero-card {
+    padding: 24px;
+    border-radius: 20px;
+    transition: all var(--transition-normal);
+}
+
+.hero-card:hover {
+    transform: translateY(-5px);
+}
+
+.hero-card-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.hero-card-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.hero-card-desc {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ========================================
+   STATS SECTION
+   ======================================== */
+.stats-section {
+    padding: var(--section-padding) 0;
+    position: relative;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+}
+
+.stat-card {
+    padding: 32px;
+    border-radius: 20px;
+    text-align: center;
+    transition: all var(--transition-normal);
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+}
+
+.stat-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.stat-number {
+    font-size: 48px;
+    font-weight: 900;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+}
+
+/* ========================================
+   HOW IT WORKS SECTION
+   ======================================== */
+.how-section {
+    padding: var(--section-padding) 0;
+    position: relative;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.section-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.section-title {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 900;
+    margin-bottom: 16px;
+}
+
+.section-description {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    position: relative;
+}
+
+.step-card {
+    padding: 32px;
+    border-radius: 20px;
+    position: relative;
+    transition: all var(--transition-normal);
+}
+
+.step-card:hover {
+    transform: translateY(-10px);
+}
+
+.step-number {
+    position: absolute;
+    top: -20px;
+    left: 32px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 900;
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+}
+
+html[dir="rtl"] .step-number {
+    left: auto;
+    right: 32px;
+}
+
+.step-icon {
+    font-size: 56px;
+    margin-bottom: 24px;
+    display: block;
+}
+
+.step-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.step-description {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.8;
+}
+
+/* ========================================
+   BENEFITS SECTION
+   ======================================== */
+.benefits-section {
+    padding: var(--section-padding) 0;
+    position: relative;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.benefit-card {
+    padding: 32px;
+    border-radius: 20px;
+    transition: all var(--transition-normal);
+}
+
+.benefit-card:hover {
+    transform: translateY(-10px);
+}
+
+.benefit-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.benefit-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.benefit-description {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.8;
+}
+
+/* ========================================
+   FEATURES SECTION
+   ======================================== */
+.features-section {
+    padding: var(--section-padding) 0;
+    position: relative;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.feature-card {
+    padding: 32px;
+    border-radius: 20px;
+    transition: all var(--transition-normal);
+    text-align: center;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.feature-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+.feature-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.feature-description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* ========================================
+   TESTIMONIALS SECTION
+   ======================================== */
+.testimonials-section {
+    padding: var(--section-padding) 0;
+    position: relative;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.testimonial-card {
+    padding: 32px;
+    border-radius: 20px;
+    transition: all var(--transition-normal);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+}
+
+.testimonial-stars {
+    font-size: 20px;
+    margin-bottom: 16px;
+    color: #f59e0b;
+}
+
+.testimonial-text {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.author-info h4 {
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.author-info p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+}
+
+/* ========================================
+   CTA SECTION
+   ======================================== */
+.cta-section {
+    padding: var(--section-padding) 0;
+    position: relative;
+}
+
+.cta-container {
+    padding: 64px;
+    border-radius: 32px;
+    text-align: center;
+    background: var(--gradient-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.cta-content {
+    position: relative;
+    z-index: 1;
+}
+
+.cta-title {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 900;
+    margin-bottom: 16px;
+}
+
+.cta-description {
+    font-size: 18px;
+    margin-bottom: 32px;
+    opacity: 0.9;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-white {
+    background: #ffffff;
+    color: #0a0e27;
+}
+
+.btn-white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+}
+
+.btn-outline {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.footer {
+    padding: 64px 0 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 48px;
+    margin-bottom: 48px;
+}
+
+.footer-brand h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.footer-brand p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 24px;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all var(--transition-normal);
+}
+
+.social-link:hover {
+    background: var(--gradient-primary);
+    transform: translateY(-3px);
+}
+
+.footer-section h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-bottom a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* ========================================
+   PROGRESS SECTION
+   ======================================== */
+.progress-section {
+    padding: var(--section-padding) 0;
+    position: relative;
+}
+
+.progress-container {
+    padding: 48px;
+    border-radius: 24px;
+}
+
+.progress-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.progress-header h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 900;
+    margin-bottom: 16px;
+}
+
+.progress-header p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 18px;
+}
+
+.progress-bar-container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50px;
+    height: 24px;
+    overflow: hidden;
+    margin-bottom: 32px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 50px;
+    width: 73%;
+    transition: width 1s ease;
+    position: relative;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.progress-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    text-align: center;
+}
+
+.progress-stat h3 {
+    font-size: 32px;
+    font-weight: 900;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+}
+
+.progress-stat p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 1024px) {
+    :root {
+        --section-padding: 80px;
+    }
+    
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 120px;
+    }
+    
+    .hero-cards {
+        margin-top: 48px;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --section-padding: var(--section-padding-mobile);
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(10, 14, 39, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+        transition: left var(--transition-normal);
+    }
+    
+    html[dir="rtl"] .nav-menu {
+        left: auto;
+        right: -100%;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    html[dir="rtl"] .nav-menu.active {
+        left: auto;
+        right: 0;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+        z-index: 101;
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+    
+    .hero-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-grid,
+    .steps-grid,
+    .benefits-grid,
+    .features-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-container {
+        padding: 40px 24px;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+    
+    .hero-title {
+        font-size: 32px;
+    }
+    
+    .hero-description {
+        font-size: 16px;
+    }
+    
+    .btn {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+    
+    .step-number {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    html[dir="rtl"] .step-number {
+        right: 50%;
+        left: auto;
+        transform: translateX(50%);
+    }
+    
+    .progress-container {
+        padding: 32px 24px;
+    }
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+.text-center {
+    text-align: center;
+}
+
+.mb-1 {
+    margin-bottom: 8px;
+}
+
+.mb-2 {
+    margin-bottom: 16px;
+}
+
+.mb-3 {
+    margin-bottom: 24px;
+}
+
+.mb-4 {
+    margin-bottom: 32px;
+}
+
+.mt-1 {
+    margin-top: 8px;
+}
+
+.mt-2 {
+    margin-top: 16px;
+}
+
+.mt-3 {
+    margin-top: 24px;
+}
+
+.mt-4 {
+    margin-top: 32px;
+}
+
+</style>
+</head>
+<body>
+    <!-- Language Switcher Button -->
+    <div class="language-switcher">
+        <button class="lang-toggle-btn" id="langToggle" data-tooltip="Switch Language" aria-label="Switch Language">
+            <span class="lang-text">EN</span>
+        </button>
+    </div>
+
+    <!-- Background Animation -->
+    <div class="background-container">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">
+                    <span class="logo-icon">🏘️</span>
+                    <span class="logo-text" data-en="Mantiqati" data-ar="منطقتي">منطقتي</span>
+                </div>
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#hero" class="nav-link active" data-en="Home" data-ar="الرئيسية">الرئيسية</a></li>
+                    <li><a href="#how" class="nav-link" data-en="How It Works" data-ar="كيف يعمل">كيف يعمل</a></li>
+                    <li><a href="#benefits" class="nav-link" data-en="Benefits" data-ar="المميزات">المميزات</a></li>
+                    <li><a href="#testimonials" class="nav-link" data-en="Reviews" data-ar="التقييمات">التقييمات</a></li>
+                    <li><a href="#contact" class="nav-link" data-en="Contact" data-ar="تواصل معنا">تواصل معنا</a></li>
+                </ul>
+                
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Mobile Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="container">
+            <div style="display: flex; align-items: center; gap: 48px; flex-wrap: wrap;">
+                <div class="hero-content">
+                    <div class="hero-badge glass-effect">
+                        <span class="badge-icon">⚡</span>
+                        <span data-en="Revolutionary Shopping Experience" data-ar="تجربة تسوق ثورية">تجربة تسوق ثورية</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        <span data-en="Shop Together," data-ar="تسوق معاً،">تسوق معاً،</span><br>
+                        <span class="gradient-text" data-en="Save More" data-ar="وفر أكثر">وفر أكثر</span>
+                    </h1>
+                    
+                    <p class="hero-description" data-en="Join thousands of smart shoppers in Egypt who are saving 40-50% on essential goods through collective purchasing power. Your neighborhood, your savings!" data-ar="انضم لآلاف المتسوقين الأذكياء في مصر الذين يوفرون 40-50٪ على السلع الأساسية من خلال الشراء الجماعي. حيك، توفيرك!">
+                        انضم لآلاف المتسوقين الأذكياء في مصر الذين يوفرون 40-50٪ على السلع الأساسية من خلال الشراء الجماعي. حيك، توفيرك!
+                    </p>
+                    
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" data-en="Start Saving Now" data-ar="ابدأ التوفير الآن">ابدأ التوفير الآن</button>
+                        <button class="btn btn-secondary" data-en="Watch Demo" data-ar="شاهد العرض التوضيحي">شاهد العرض التوضيحي</button>
+                    </div>
+                </div>
+                
+                <div class="hero-cards">
+                    <div class="hero-card glass-effect">
+                        <span class="hero-card-icon">💰</span>
+                        <h3 class="hero-card-title" data-en="Save 40-50%" data-ar="وفر 40-50٪">وفر 40-50٪</h3>
+                        <p class="hero-card-desc" data-en="On everyday essentials" data-ar="على احتياجاتك اليومية">على احتياجاتك اليومية</p>
+                    </div>
+                    
+                    <div class="hero-card glass-effect">
+                        <span class="hero-card-icon">🤝</span>
+                        <h3 class="hero-card-title" data-en="Group Power" data-ar="قوة الجماعة">قوة الجماعة</h3>
+                        <p class="hero-card-desc" data-en="Better prices together" data-ar="أسعار أفضل معاً">أسعار أفضل معاً</p>
+                    </div>
+                    
+                    <div class="hero-card glass-effect">
+                        <span class="hero-card-icon">🚚</span>
+                        <h3 class="hero-card-title" data-en="Free Delivery" data-ar="توصيل مجاني">توصيل مجاني</h3>
+                        <p class="hero-card-desc" data-en="To your neighborhood" data-ar="لحيك">لحيك</p>
+                    </div>
+                    
+                    <div class="hero-card glass-effect">
+                        <span class="hero-card-icon">✅</span>
+                        <h3 class="hero-card-title" data-en="Verified Quality" data-ar="جودة موثقة">جودة موثقة</h3>
+                        <p class="hero-card-desc" data-en="Premium products only" data-ar="منتجات ممتازة فقط">منتجات ممتازة فقط</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card glass-effect">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-number counter" data-target="50000">0</div>
+                    <div class="stat-label" data-en="Active Members" data-ar="عضو نشط">عضو نشط</div>
+                </div>
+                
+                <div class="stat-card glass-effect">
+                    <div class="stat-icon">🏘️</div>
+                    <div class="stat-number counter" data-target="150">0</div>
+                    <div class="stat-label" data-en="Neighborhoods" data-ar="حي مشارك">حي مشارك</div>
+                </div>
+                
+                <div class="stat-card glass-effect">
+                    <div class="stat-icon">💵</div>
+                    <div class="stat-number">45%</div>
+                    <div class="stat-label" data-en="Average Savings" data-ar="متوسط التوفير">متوسط التوفير</div>
+                </div>
+                
+                <div class="stat-card glass-effect">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-number">4.9</div>
+                    <div class="stat-label" data-en="User Rating" data-ar="تقييم المستخدمين">تقييم المستخدمين</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-section" id="how">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge glass-effect" data-en="Simple Process" data-ar="عملية بسيطة">عملية بسيطة</div>
+                <h2 class="section-title" data-en="How Mantiqati Works" data-ar="كيف تعمل منطقتي">كيف تعمل منطقتي</h2>
+                <p class="section-description" data-en="Start saving in three easy steps. Join your neighborhood, choose products, and enjoy incredible discounts!" data-ar="ابدأ التوفير في ثلاث خطوات سهلة. انضم لحيك، اختر المنتجات، واستمتع بخصومات مذهلة!">
+                    ابدأ التوفير في ثلاث خطوات سهلة. انضم لحيك، اختر المنتجات، واستمتع بخصومات مذهلة!
+                </p>
+            </div>
+            
+            <div class="steps-grid">
+                <div class="step-card glass-effect">
+                    <div class="step-number">1</div>
+                    <span class="step-icon">📍</span>
+                    <h3 class="step-title" data-en="Join Your Area" data-ar="انضم لمنطقتك">انضم لمنطقتك</h3>
+                    <p class="step-description" data-en="Sign up and connect with neighbors in your area who want to save together." data-ar="سجل وتواصل مع جيرانك في منطقتك الذين يريدون التوفير معاً.">
+                        سجل وتواصل مع جيرانك في منطقتك الذين يريدون التوفير معاً.
+                    </p>
+                </div>
+                
+                <div class="step-card glass-effect">
+                    <div class="step-number">2</div>
+                    <span class="step-icon">🛒</span>
+                    <h3 class="step-title" data-en="Select Products" data-ar="اختر المنتجات">اختر المنتجات</h3>
+                    <p class="step-description" data-en="Browse our curated selection of essential goods and add what you need to your cart." data-ar="تصفح مجموعتنا المختارة من السلع الأساسية وأضف ما تحتاجه لعربتك.">
+                        تصفح مجموعتنا المختارة من السلع الأساسية وأضف ما تحتاجه لعربتك.
+                    </p>
+                </div>
+                
+                <div class="step-card glass-effect">
+                    <div class="step-number">3</div>
+                    <span class="step-icon">🎉</span>
+                    <h3 class="step-title" data-en="Save & Receive" data-ar="وفر واستلم">وفر واستلم</h3>
+                    <p class="step-description" data-en="Get bulk pricing discounts and free delivery right to your neighborhood collection point." data-ar="احصل على خصومات الشراء بالجملة والتوصيل المجاني لنقطة التجميع في حيك.">
+                        احصل على خصومات الشراء بالجملة والتوصيل المجاني لنقطة التجميع في حيك.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section" id="benefits">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge glass-effect" data-en="Why Choose Us" data-ar="لماذا تختارنا">لماذا تختارنا</div>
+                <h2 class="section-title" data-en="Benefits That Matter" data-ar="مميزات تهمك">مميزات تهمك</h2>
+                <p class="section-description" data-en="Experience the power of collective purchasing with features designed for Egyptian families." data-ar="جرب قوة الشراء الجماعي مع ميزات مصممة للعائلات المصرية.">
+                    جرب قوة الشراء الجماعي مع ميزات مصممة للعائلات المصرية.
+                </p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card glass-effect">
+                    <div class="benefit-icon">💸</div>
+                    <h3 class="benefit-title" data-en="Massive Savings" data-ar="توفير كبير">توفير كبير</h3>
+                    <p class="benefit-description" data-en="Save 40-50% on average compared to retail prices. The more neighbors join, the better the price!" data-ar="وفر 40-50٪ في المتوسط مقارنة بأسعار التجزئة. كلما انضم المزيد من الجيران، كان السعر أفضل!">
+                        وفر 40-50٪ في المتوسط مقارنة بأسعار التجزئة. كلما انضم المزيد من الجيران، كان السعر أفضل!
+                    </p>
+                </div>
+                
+                <div class="benefit-card glass-effect">
+                    <div class="benefit-icon">🏆</div>
+                    <h3 class="benefit-title" data-en="Premium Quality" data-ar="جودة ممتازة">جودة ممتازة</h3>
+                    <p class="benefit-description" data-en="We partner with trusted brands and verify every product. Quality you can count on, every time." data-ar="نتعاون مع علامات تجارية موثوقة ونتحقق من كل منتج. جودة يمكنك الاعتماد عليها، في كل مرة.">
+                        نتعاون مع علامات تجارية موثوقة ونتحقق من كل منتج. جودة يمكنك الاعتماد عليها، في كل مرة.
+                    </p>
+                </div>
+                
+                <div class="benefit-card glass-effect">
+                    <div class="benefit-icon">🚚</div>
+                    <h3 class="benefit-title" data-en="Convenient Delivery" data-ar="توصيل مريح">توصيل مريح</h3>
+                    <p class="benefit-description" data-en="Free delivery to your neighborhood collection point. Pick up at your convenience, no waiting at home!" data-ar="توصيل مجاني لنقطة التجميع في حيك. استلم في الوقت المناسب لك، بدون انتظار في المنزل!">
+                        توصيل مجاني لنقطة التجميع في حيك. استلم في الوقت المناسب لك، بدون انتظار في المنزل!
+                    </p>
+                </div>
+                
+                <div class="benefit-card glass-effect">
+                    <div class="benefit-icon">🔒</div>
+                    <h3 class="benefit-title" data-en="Secure Payments" data-ar="دفع آمن">دفع آمن</h3>
+                    <p class="benefit-description" data-en="Multiple payment options with bank-level security. Your financial information is always protected." data-ar="خيارات دفع متعددة بأمان على مستوى البنوك. معلوماتك المالية محمية دائماً.">
+                        خيارات دفع متعددة بأمان على مستوى البنوك. معلوماتك المالية محمية دائماً.
+                    </p>
+                </div>
+                
+                <div class="benefit-card glass-effect">
+                    <div class="benefit-icon">👨‍👩‍👧‍👦</div>
+                    <h3 class="benefit-title" data-en="Community Building" data-ar="بناء مجتمع">بناء مجتمع</h3>
+                    <p class="benefit-description" data-en="Connect with neighbors, build relationships, and strengthen your community while saving money." data-ar="تواصل مع الجيران، وبناء العلاقات، وتعزيز مجتمعك مع توفير المال.">
+                        تواصل مع الجيران، وبناء العلاقات، وتعزيز مجتمعك مع توفير المال.
+                    </p>
+                </div>
+                
+                <div class="benefit-card glass-effect">
+                    <div class="benefit-icon">📱</div>
+                    <h3 class="benefit-title" data-en="Easy Mobile App" data-ar="تطبيق سهل">تطبيق سهل</h3>
+                    <p class="benefit-description" data-en="User-friendly app designed for everyone. Browse, order, and track your savings all in one place." data-ar="تطبيق سهل الاستخدام مصمم للجميع. تصفح، اطلب، وتتبع توفيرك كل ذلك في مكان واحد.">
+                        تطبيق سهل الاستخدام مصمم للجميع. تصفح، اطلب، وتتبع توفيرك كل ذلك في مكان واحد.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge glass-effect" data-en="Platform Features" data-ar="مميزات المنصة">مميزات المنصة</div>
+                <h2 class="section-title" data-en="Everything You Need" data-ar="كل ما تحتاجه">كل ما تحتاجه</h2>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">🔍</div>
+                    <h3 class="feature-title" data-en="Smart Search" data-ar="بحث ذكي">بحث ذكي</h3>
+                    <p class="feature-description" data-en="Find products quickly and easily" data-ar="ابحث عن المنتجات بسرعة وسهولة">ابحث عن المنتجات بسرعة وسهولة</p>
+                </div>
+                
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">💳</div>
+                    <h3 class="feature-title" data-en="Multiple Payments" data-ar="طرق دفع متعددة">طرق دفع متعددة</h3>
+                    <p class="feature-description" data-en="Cash, cards, and digital wallets" data-ar="نقداً، كروت، ومحافظ إلكترونية">نقداً، كروت، ومحافظ إلكترونية</p>
+                </div>
+                
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title" data-en="Savings Tracker" data-ar="متتبع التوفير">متتبع التوفير</h3>
+                    <p class="feature-description" data-en="See how much you've saved" data-ar="شاهد كم وفرت">شاهد كم وفرت</p>
+                </div>
+                
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">🔔</div>
+                    <h3 class="feature-title" data-en="Smart Notifications" data-ar="إشعارات ذكية">إشعارات ذكية</h3>
+                    <p class="feature-description" data-en="Never miss a deal" data-ar="لا تفوت أي عرض">لا تفوت أي عرض</p>
+                </div>
+                
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">⭐</div>
+                    <h3 class="feature-title" data-en="Review System" data-ar="نظام التقييم">نظام التقييم</h3>
+                    <p class="feature-description" data-en="Share and read honest reviews" data-ar="شارك واقرأ تقييمات صادقة">شارك واقرأ تقييمات صادقة</p>
+                </div>
+                
+                <div class="feature-card glass-effect">
+                    <div class="feature-icon">🎁</div>
+                    <h3 class="feature-title" data-en="Rewards Program" data-ar="برنامج المكافآت">برنامج المكافآت</h3>
+                    <p class="feature-description" data-en="Earn points with every purchase" data-ar="اكسب نقاط مع كل عملية شراء">اكسب نقاط مع كل عملية شراء</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Section -->
+    <section class="progress-section">
+        <div class="container">
+            <div class="progress-container glass-effect">
+                <div class="progress-header">
+                    <h2 data-en="Our Journey to 100,000 Members" data-ar="رحلتنا إلى 100,000 عضو">رحلتنا إلى 100,000 عضو</h2>
+                    <p data-en="Join thousands of Egyptians saving together" data-ar="انضم لآلاف المصريين الذين يوفرون معاً">انضم لآلاف المصريين الذين يوفرون معاً</p>
+                </div>
+                
+                <div class="progress-bar-container">
+                    <div class="progress-fill"></div>
+                </div>
+                
+                <div class="progress-stats">
+                    <div class="progress-stat">
+                        <h3>73%</h3>
+                        <p data-en="Goal Achieved" data-ar="من الهدف">من الهدف</p>
+                    </div>
+                    <div class="progress-stat">
+                        <h3>73K</h3>
+                        <p data-en="Current Members" data-ar="عضو حالي">عضو حالي</p>
+                    </div>
+                    <div class="progress-stat">
+                        <h3>27K</h3>
+                        <p data-en="Spots Left" data-ar="مكان متبقي">مكان متبقي</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge glass-effect" data-en="Success Stories" data-ar="قصص النجاح">قصص النجاح</div>
+                <h2 class="section-title" data-en="What Our Members Say" data-ar="ماذا يقول أعضاؤنا">ماذا يقول أعضاؤنا</h2>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card glass-effect">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text" data-en="I save over 2000 EGP monthly on my grocery shopping! Mantiqati has been a game-changer for my family budget." data-ar="أوفر أكثر من 2000 جنيه شهرياً على مشترياتي! منطقتي غيرت قواعد اللعبة لميزانية عائلتي.">
+                        "أوفر أكثر من 2000 جنيه شهرياً على مشترياتي! منطقتي غيرت قواعد اللعبة لميزانية عائلتي."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👩</div>
+                        <div class="author-info">
+                            <h4 data-en="Fatma Ahmed" data-ar="فاطمة أحمد">فاطمة أحمد</h4>
+                            <p data-en="Nasr City, Cairo" data-ar="مدينة نصر، القاهرة">مدينة نصر، القاهرة</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card glass-effect">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text" data-en="Not only am I saving money, but I've also met wonderful neighbors. It's bringing our community together!" data-ar="ليس فقط أنني أوفر المال، ولكني أيضاً قابلت جيران رائعين. إنها تجمع مجتمعنا معاً!">
+                        "ليس فقط أنني أوفر المال، ولكني أيضاً قابلت جيران رائعين. إنها تجمع مجتمعنا معاً!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👨</div>
+                        <div class="author-info">
+                            <h4 data-en="Mohamed Hassan" data-ar="محمد حسن">محمد حسن</h4>
+                            <p data-en="Maadi, Cairo" data-ar="المعادي، القاهرة">المعادي، القاهرة</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card glass-effect">
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text" data-en="The quality is excellent and the prices are unbeatable. I recommend it to all my friends and family!" data-ar="الجودة ممتازة والأسعار لا تقبل المنافسة. أوصي به لجميع أصدقائي وعائلتي!">
+                        "الجودة ممتازة والأسعار لا تقبل المنافسة. أوصي به لجميع أصدقائي وعائلتي!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👩</div>
+                        <div class="author-info">
+                            <h4 data-en="Nour El-Din" data-ar="نور الدين">نور الدين</h4>
+                            <p data-en="Alexandria" data-ar="الإسكندرية">الإسكندرية</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-container">
+                <div class="cta-content">
+                    <h2 class="cta-title" data-en="Ready to Start Saving?" data-ar="جاهز للبدء في التوفير؟">جاهز للبدء في التوفير؟</h2>
+                    <p class="cta-description" data-en="Join thousands of smart shoppers and start saving 40-50% today!" data-ar="انضم لآلاف المتسوقين الأذكياء وابدأ التوفير 40-50٪ اليوم!">
+                        انضم لآلاف المتسوقين الأذكياء وابدأ التوفير 40-50٪ اليوم!
+                    </p>
+                    <div class="cta-buttons">
+                        <button class="btn btn-white" data-en="Get Started Free" data-ar="ابدأ مجاناً">ابدأ مجاناً</button>
+                        <button class="btn btn-outline" data-en="Contact Sales" data-ar="تواصل معنا">تواصل معنا</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3 data-en="Mantiqati" data-ar="منطقتي">منطقتي</h3>
+                    <p data-en="Empowering Egyptian communities through collective purchasing." data-ar="تمكين المجتمعات المصرية من خلال الشراء الجماعي.">
+                        تمكين المجتمعات المصرية من خلال الشراء الجماعي.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">📘</a>
+                        <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                        <a href="#" class="social-link" aria-label="Twitter">🐦</a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">💼</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 data-en="Company" data-ar="الشركة">الشركة</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" data-en="About Us" data-ar="من نحن">من نحن</a></li>
+                        <li><a href="#" data-en="Careers" data-ar="الوظائف">الوظائف</a></li>
+                        <li><a href="#" data-en="Press" data-ar="الصحافة">الصحافة</a></li>
+                        <li><a href="#" data-en="Blog" data-ar="المدونة">المدونة</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 data-en="Support" data-ar="الدعم">الدعم</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" data-en="Help Center" data-ar="مركز المساعدة">مركز المساعدة</a></li>
+                        <li><a href="#" data-en="Contact Us" data-ar="اتصل بنا">اتصل بنا</a></li>
+                        <li><a href="#" data-en="FAQs" data-ar="الأسئلة الشائعة">الأسئلة الشائعة</a></li>
+                        <li><a href="#" data-en="Shipping Info" data-ar="معلومات الشحن">معلومات الشحن</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 data-en="Legal" data-ar="قانوني">قانوني</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" data-en="Terms of Service" data-ar="شروط الخدمة">شروط الخدمة</a></li>
+                        <li><a href="#" data-en="Privacy Policy" data-ar="سياسة الخصوصية">سياسة الخصوصية</a></li>
+                        <li><a href="#" data-en="Cookie Policy" data-ar="سياسة الكوكيز">سياسة الكوكيز</a></li>
+                        <li><a href="#" data-en="Refund Policy" data-ar="سياسة الإرجاع">سياسة الإرجاع</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2024 <span data-en="Mantiqati. All rights reserved. | Developed by" data-ar="منطقتي. جميع الحقوق محفوظة. | تم التطوير بواسطة">منطقتي. جميع الحقوق محفوظة. | تم التطوير بواسطة</span>
+                    <a href="https://moh222salah.github.io/cv" target="_blank">Mohamed Salah</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+// ========================================
+// LANGUAGE SWITCHER SYSTEM
+// ========================================
+const LanguageSwitcher = {
+    currentLang: 'ar', // اللغة الافتراضية العربية
+    
+    init() {
+        this.loadLanguage();
+        this.attachEventListeners();
+    },
+    
+    attachEventListeners() {
+        const langBtn = document.getElementById('langToggle');
+        if (langBtn) {
+            langBtn.addEventListener('click', () => this.toggleLanguage());
+        }
+    },
+    
+    toggleLanguage() {
+        const newLang = this.currentLang === 'ar' ? 'en' : 'ar';
+        this.setLanguage(newLang);
+        
+        // Add animation
+        const langBtn = document.getElementById('langToggle');
+        langBtn.classList.add('lang-switching');
+        setTimeout(() => {
+            langBtn.classList.remove('lang-switching');
+        }, 500);
+    },
+    
+    setLanguage(lang) {
+        this.currentLang = lang;
+        
+        // Update HTML attributes
+        document.documentElement.setAttribute('lang', lang);
+        document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+        
+        // Update button text
+        const langBtn = document.getElementById('langToggle');
+        const langText = langBtn.querySelector('.lang-text');
+        langText.textContent = lang === 'ar' ? 'EN' : 'ع';
+        
+        // Update tooltip
+        langBtn.setAttribute('data-tooltip', lang === 'ar' ? 'Switch to English' : 'التبديل للعربية');
+        
+        // Update all translatable elements
+        this.updateContent();
+        
+        // Save preference
+        localStorage.setItem('preferred-language', lang);
+    },
+    
+    updateContent() {
+        const elements = document.querySelectorAll('[data-en][data-ar]');
+        elements.forEach(element => {
+            const text = this.currentLang === 'ar' ? element.getAttribute('data-ar') : element.getAttribute('data-en');
+            if (text) {
+                element.textContent = text;
+            }
+        });
+    },
+    
+    loadLanguage() {
+        // Load saved preference or use default (Arabic)
+        const savedLang = localStorage.getItem('preferred-language') || 'ar';
+        this.setLanguage(savedLang);
+    }
+};
+
+// Initialize language switcher when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => LanguageSwitcher.init());
+} else {
+    LanguageSwitcher.init();
+}
+
+// ========================================
+// ORIGINAL JAVASCRIPT CODE (PRESERVED)
+// ========================================
+
+// ========================================
+// NAVBAR FUNCTIONALITY
+// ========================================
+function initNavbar() {
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        // Add/remove scrolled class
+        if (currentScroll > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+        
+        lastScroll = currentScroll;
+    });
+}
+
+// ========================================
+// MOBILE MENU
+// ========================================
+function initMobileMenu() {
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navMenu = document.getElementById('navMenu');
+    
+    if (mobileMenuToggle && navMenu) {
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        // Close menu when clicking on a link
+        const navLinks = navMenu.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+}
+
+// ========================================
+// SMOOTH SCROLLING
+// ========================================
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const offsetTop = target.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+// ========================================
+// ACTIVE NAV LINK ON SCROLL
+// ========================================
+function initActiveNavLink() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    window.addEventListener('scroll', () => {
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= (sectionTop - 200)) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+}
+
+// ========================================
+// COUNTER ANIMATIONS
+// ========================================
+function initCounterAnimations() {
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200;
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = +counter.getAttribute('data-target');
+                const increment = target / speed;
+                
+                const updateCount = () => {
+                    const count = +counter.innerText;
+                    
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCount, 10);
+                    } else {
+                        counter.innerText = target.toLocaleString();
+                    }
+                };
+                
+                updateCount();
+                observer.unobserve(counter);
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+    
+    counters.forEach(counter => {
+        observer.observe(counter);
+    });
+}
+
+// ========================================
+// SCROLL ANIMATIONS
+// ========================================
+function initScrollAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+    
+    // Observe all cards and sections
+    const animatedElements = document.querySelectorAll('.stat-card, .step-card, .benefit-card, .feature-card, .testimonial-card');
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'all 0.6s ease';
+        observer.observe(el);
+    });
+}
+
+// ========================================
+// PARTICLES ANIMATION
+// ========================================
+function initParticles() {
+    const particlesContainer = document.getElementById('particles');
+    if (!particlesContainer) return;
+    
+    const particleCount = 50;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.style.cssText = `
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            left: ${Math.random() * 100}%;
+            top: ${Math.random() * 100}%;
+            animation: particleFloat ${5 + Math.random() * 10}s infinite ease-in-out;
+            animation-delay: ${Math.random() * 5}s;
+        `;
+        particlesContainer.appendChild(particle);
+    }
+    
+    // Add particle animation
+    const particleStyle = document.createElement('style');
+    particleStyle.textContent = `
+        @keyframes particleFloat {
+            0%, 100% {
+                transform: translate(0, 0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(particleStyle);
+}
+
+// ========================================
+// INITIALIZE ALL FUNCTIONS
+// ========================================
+document.addEventListener('DOMContentLoaded', () => {
+    initNavbar();
+    initMobileMenu();
+    initSmoothScroll();
+    initActiveNavLink();
+    initCounterAnimations();
+    initScrollAnimations();
+    initParticles();
+});
+
+// ========================================
+// FORM HANDLING
+// ========================================
+const forms = document.querySelectorAll('form');
+forms.forEach(form => {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // Add your form handling logic here
+        console.log('Form submitted');
+    });
+});
+
+// ========================================
+// PROGRESS BAR ANIMATION
+// ========================================
+function animateProgressBar() {
+    const progressFill = document.querySelector('.progress-fill');
+    if (!progressFill) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const targetWidth = progressFill.style.width;
+                progressFill.style.width = '0%';
+                
+                setTimeout(() => {
+                    progressFill.style.width = targetWidth;
+                }, 100);
+                
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+    
+    observer.observe(progressFill);
+}
+
+// Initialize progress bar animation
+animateProgressBar();
+
+// ========================================
+// BUTTON RIPPLE EFFECT
+// ========================================
+document.querySelectorAll('.btn').forEach(button => {
+    button.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.cssText = `
+            position: absolute;
+            width: ${size}px;
+            height: ${size}px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            left: ${x}px;
+            top: ${y}px;
+            pointer-events: none;
+            transform: scale(0);
+            animation: ripple 0.6s ease-out;
+        `;
+        
+        this.style.position = 'relative';
+        this.style.overflow = 'hidden';
+        this.appendChild(ripple);
+        
+        setTimeout(() => ripple.remove(), 600);
+    });
+});
+
+// Add ripple animation
+const rippleStyle = document.createElement('style');
+rippleStyle.textContent = `
+    @keyframes ripple {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(rippleStyle);
+
+// ========================================
+// CARD TILT EFFECT (DESKTOP ONLY)
+// ========================================
+if (window.innerWidth > 768) {
+    const cards = document.querySelectorAll('.hero-card, .stat-card, .feature-card');
+    
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 20;
+            const rotateY = (centerX - x) / 20;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        });
+    });
+}
+
+// ========================================
+// PERFORMANCE OPTIMIZATION
+// ========================================
+
+// Debounce function for scroll events
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Optimize scroll events
+window.addEventListener('scroll', debounce(() => {
+    // Any additional scroll-based logic
+}, 10));
+
+// ========================================
+// LAZY LOADING IMAGES
+// ========================================
+if ('loading' in HTMLImageElement.prototype) {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    images.forEach(img => {
+        img.src = img.dataset.src;
+    });
+} else {
+    // Fallback for browsers that don't support lazy loading
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+    document.body.appendChild(script);
+}
+
+// ========================================
+// CONSOLE BRANDING
+// ========================================
+console.log('%c🏘️ Mantiqati', 'color: #10b981; font-size: 24px; font-weight: bold;');
+console.log('%cRevolutionary Collective Purchasing Platform', 'color: #3b82f6; font-size: 14px;');
+console.log('%cDeveloped by Mohamed Salah', 'color: #ffffff; font-size: 12px;');
+console.log('%c💼 Portfolio: https://moh222salah.github.io/cv', 'color: #f59e0b; font-size: 12px;');
+console.log('%c📲 WhatsApp: +20 111 390 3070', 'color: #10b981; font-size: 12px;');
+
+// ========================================
+// PAGE LOAD PERFORMANCE TRACKING
+// ========================================
+window.addEventListener('load', () => {
+    const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+    console.log(`⚡ Page loaded in ${loadTime}ms`);
+    
+    // Track performance metrics
+    if (window.performance && window.performance.getEntriesByType) {
+        const paintMetrics = performance.getEntriesByType('paint');
+        paintMetrics.forEach(metric => {
+            console.log(`🎨 ${metric.name}: ${Math.round(metric.startTime)}ms`);
+        });
+    }
+});
+
+// ========================================
+// EASTER EGG - KONAMI CODE
+// ========================================
+let konamiCode = [];
+const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+
+document.addEventListener('keydown', (e) => {
+    konamiCode.push(e.keyCode);
+    konamiCode = konamiCode.slice(-10);
+    
+    if (konamiCode.join(',') === konamiSequence.join(',')) {
+        activateEasterEgg();
+        konamiCode = [];
+    }
+});
+
+function activateEasterEgg() {
+    const message = document.createElement('div');
+    message.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(16, 185, 129, 0.95);
+        backdrop-filter: blur(10px);
+        color: white;
+        padding: 40px 60px;
+        border-radius: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        z-index: 10000;
+        animation: bounceIn 0.5s ease;
+    `;
+    message.innerHTML = '🎉 You found the secret!<br><small style="font-size: 16px; font-weight: normal;">Save an extra 5% on your first order!</small>';
+    document.body.appendChild(message);
+    
+    setTimeout(() => {
+        message.style.animation = 'fadeOut 0.5s ease';
+        setTimeout(() => message.remove(), 500);
+    }, 3000);
+}
+
+// Add bounce animation
+const easterEggStyle = document.createElement('style');
+easterEggStyle.textContent = `
+    @keyframes bounceIn {
+        0% {
+            transform: translate(-50%, -50%) scale(0);
+        }
+        50% {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        100% {
+            transform: translate(-50%, -50%) scale(1);
+        }
+    }
+    @keyframes fadeOut {
+        to {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.8);
+        }
+    }
+`;
+document.head.appendChild(easterEggStyle);
+
+// ========================================
+// VIEWPORT HEIGHT FIX (MOBILE BROWSERS)
+// ========================================
+function setViewportHeight() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+setViewportHeight();
+window.addEventListener('resize', debounce(setViewportHeight, 100));
+
+// ========================================
+// PREVENT CONSOLE ERRORS
+// ========================================
+window.addEventListener('error', (e) => {
+    if (e.target.tagName === 'IMG') {
+        e.target.style.display = 'none';
+    }
+});
+
+// ========================================
+// ACCESSIBILITY ENHANCEMENTS
+// ========================================
+
+// Skip to main content
+const skipLink = document.createElement('a');
+skipLink.href = '#hero';
+skipLink.className = 'skip-link';
+skipLink.textContent = 'Skip to main content';
+skipLink.style.cssText = `
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-color);
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    z-index: 10000;
+`;
+skipLink.addEventListener('focus', () => {
+    skipLink.style.top = '0';
+});
+skipLink.addEventListener('blur', () => {
+    skipLink.style.top = '-40px';
+});
+document.body.insertBefore(skipLink, document.body.firstChild);
+
+// Keyboard navigation for cards
+document.querySelectorAll('.stat-card, .feature-card').forEach(card => {
+    card.setAttribute('tabindex', '0');
+    card.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            card.click();
+        }
+    });
+});
+
+// ========================================
+// EXPORT FOR TESTING
+// ========================================
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        initNavbar,
+        initMobileMenu,
+        initScrollAnimations,
+        initCounterAnimations,
+        initParticles,
+        initSmoothScroll
+    };
+}
+        
+    </script>
+</body>
+</html>
